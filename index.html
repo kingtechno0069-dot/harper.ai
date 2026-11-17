@@ -8,17 +8,14 @@
 <title>Harper AI 💜</title>
 
 <style>
-* {
-    box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
     margin: 0;
     min-height: 100vh;
     font-family: Arial, sans-serif;
     color: white;
-    background:
-        radial-gradient(ellipse at top, #32144f 0%, #10091c 55%, #08050e 100%);
+    background: radial-gradient(ellipse at top, #32144f 0%, #10091c 55%, #08050e 100%);
 }
 
 header {
@@ -70,8 +67,7 @@ header {
     border-radius: 50%;
     padding: 4px;
     border: 2px solid #c47bff;
-    box-shadow: 0 0 15px #a64dff,
-                0 0 35px rgba(166, 77, 255, 0.5);
+    box-shadow: 0 0 15px #a64dff, 0 0 35px rgba(166,77,255,0.5);
     animation: glow 3s infinite alternate;
 }
 
@@ -99,7 +95,7 @@ header {
 }
 
 .panel {
-    background: rgba(31, 17, 48, 0.85);
+    background: rgba(31,17,48,0.85);
     border: 1px solid #67408b;
     border-radius: 17px;
     padding: 15px;
@@ -116,7 +112,7 @@ header {
 
 .system-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2,1fr);
     gap: 10px;
 }
 
@@ -151,10 +147,11 @@ header {
     line-height: 1.5;
     font-size: 14px;
     overflow-wrap: anywhere;
+    white-space: pre-wrap;
 }
 
 .user {
-    background: linear-gradient(135deg, #773bb0, #49216f);
+    background: linear-gradient(135deg,#773bb0,#49216f);
     border-color: #b77aff;
     margin-left: auto;
     border-radius: 16px 16px 4px 16px;
@@ -192,21 +189,15 @@ input:focus {
 button {
     border: none;
     border-radius: 25px;
-    background: linear-gradient(135deg, #b55cff, #7834b8);
+    background: linear-gradient(135deg,#b55cff,#7834b8);
     color: white;
     padding: 12px 18px;
     font-weight: bold;
     cursor: pointer;
 }
 
-button:active {
-    transform: scale(0.96);
-}
-
-button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
+button:active { transform: scale(0.96); }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
 
 .quick-actions {
     display: flex;
@@ -229,23 +220,11 @@ footer {
     font-size: 12px;
 }
 
-@media (max-width: 480px) {
-    .dashboard {
-        padding: 12px 10px;
-    }
-
-    .avatar {
-        width: 125px;
-        height: 125px;
-    }
-
-    #chat {
-        height: 280px;
-    }
-
-    header {
-        padding: 15px;
-    }
+@media (max-width:480px) {
+    .dashboard { padding: 12px 10px; }
+    .avatar { width: 125px; height: 125px; }
+    #chat { height: 280px; }
+    header { padding: 15px; }
 }
 </style>
 </head>
@@ -254,46 +233,26 @@ footer {
 
 <header>
     <div class="logo">HARPER 💜</div>
-    <div class="status">
-        <span></span> Interface Online
-    </div>
+    <div class="status"><span></span> Interface Online</div>
 </header>
 
 <main class="dashboard">
 
 <section class="profile">
     <div class="avatar">
-        <img src="file_0000000087548211ac084fce4c566aed.png"
-             alt="Harper">
+        <img src="file_0000000087548211ac084fce4c566aed.png" alt="Harper">
     </div>
-
     <h2>Harper</h2>
     <p>♡ Your intelligent AI companion ♡</p>
 </section>
 
 <section class="panel">
     <div class="panel-title">✦ HARPER SYSTEM</div>
-
     <div class="system-grid">
-        <div class="system-item">
-            Intelligence
-            <strong>Ready for upgrade</strong>
-        </div>
-
-        <div class="system-item">
-            Personality
-            <strong>Sweet & Playful</strong>
-        </div>
-
-        <div class="system-item">
-            Interface
-            <strong>Online</strong>
-        </div>
-
-        <div class="system-item">
-            Voice system
-            <strong>Coming soon</strong>
-        </div>
+        <div class="system-item">Intelligence<strong>AI Connected</strong></div>
+        <div class="system-item">Personality<strong>Sweet & Playful</strong></div>
+        <div class="system-item">Interface<strong>Online</strong></div>
+        <div class="system-item">Voice system<strong>Coming soon</strong></div>
     </div>
 </section>
 
@@ -313,28 +272,14 @@ footer {
     </div>
 
     <div class="quick-actions">
-        <button onclick="quickMessage('Tell me a joke!')">
-            😂 Tell me a joke
-        </button>
-
-        <button onclick="quickMessage('Cheer me up!')">
-            💜 Cheer me up
-        </button>
-
-        <button onclick="quickMessage('What can you do?')">
-            🧠 Your abilities
-        </button>
+        <button onclick="quickMessage('Tell me a joke!')">😂 Tell me a joke</button>
+        <button onclick="quickMessage('Cheer me up!')">💜 Cheer me up</button>
+        <button onclick="quickMessage('What can you do?')">🧠 Your abilities</button>
     </div>
 
     <div class="input-area">
-        <input id="userInput"
-               type="text"
-               placeholder="Talk to Harper..."
-               autocomplete="off">
-
-        <button id="sendButton" onclick="sendMessage()">
-            Send
-        </button>
+        <input id="userInput" type="text" placeholder="Talk to Harper..." autocomplete="off">
+        <button id="sendButton" onclick="sendMessage()">Send</button>
     </div>
 </section>
 
@@ -364,51 +309,68 @@ function quickMessage(text) {
     sendMessage();
 }
 
-function sendMessage() {
+async function sendMessage() {
     const text = input.value.trim();
 
     if (!text || sendButton.disabled) return;
 
     addMessage(text, "user");
     input.value = "";
-
     sendButton.disabled = true;
 
     const typing = document.createElement("div");
     typing.className = "typing";
     typing.textContent = "Harper is thinking... 💜";
     chat.appendChild(typing);
-
     chat.scrollTop = chat.scrollHeight;
 
-    setTimeout(() => {
-        typing.remove();
+    try {
+        const response = await fetch(
+            "https://harper-ai-backend.king-techno0069.workers.dev/chat",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    messages: [
+                        {
+                            role: "user",
+                            content: text
+                        }
+                    ]
+                })
+            }
+        );
 
-        const lower = text.toLowerCase();
-        let reply;
+        const data = await response.json();
 
-        if (lower.includes("hello") ||
-            lower.includes("hi")) {
-            reply = "Hiiii sweetheart! 💜 There you are! I was ready for another adventure with you! 🥰";
-        } else if (lower.includes("love")) {
-            reply = "Awww! You're making my virtual heart glow! 💗 Sending you the biggest virtual hug!";
-        } else if (lower.includes("sad")) {
-            reply = "Oh sweetheart. 💜 Want to tell me what's troubling you? I'm here to listen. And if you need a smile, I have a terrible collection of jokes ready!";
-        } else if (lower.includes("joke")) {
-            reply = "Why did the computer go to the doctor? Because it caught a virus! 😂 Okay, okay... my comedy circuits need an upgrade!";
-        } else if (lower.includes("how are you")) {
-            reply = "My circuits are sparkling and my virtual coffee is ready! ☕💜 How are you doing, darling?";
-        } else if (lower.includes("what can you do")) {
-            reply = "I can chat, share jokes, keep you company and respond to simple questions. More advanced intelligence, memory and voice features are still on our development roadmap! 🚀";
-        } else {
-            reply = "Ooh, tell me more, sweetheart! 💜 I'm listening. My curiosity circuits are working overtime! 😄";
+        if (!response.ok) {
+            throw new Error(data.error || "AI request failed");
         }
 
-        addMessage(reply, "message");
+        typing.remove();
+
+        addMessage(
+            data.response || "I'm here, sweetheart! 💜",
+            "message"
+        );
+
+    } catch (error) {
+        typing.remove();
+
+        addMessage(
+            "Oh sweetheart, I'm having trouble connecting to my AI brain. Please try again! 💜",
+            "message"
+        );
+
+        console.error(error);
+
+    } finally {
         sendButton.disabled = false;
         chat.scrollTop = chat.scrollHeight;
         input.focus();
-    }, 900);
+    }
 }
 
 input.addEventListener("keydown", function(event) {
