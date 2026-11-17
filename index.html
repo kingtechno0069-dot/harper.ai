@@ -4,7 +4,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Harper 💜</title>
+<meta name="theme-color" content="#10091c">
+<title>Harper AI 💜</title>
 
 <style>
 * {
@@ -13,118 +14,238 @@
 
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #10091c;
-    color: white;
     min-height: 100vh;
+    font-family: Arial, sans-serif;
+    color: white;
+    background:
+        radial-gradient(ellipse at top, #32144f 0%, #10091c 55%, #08050e 100%);
 }
 
 header {
-    background: #211033;
-    padding: 20px;
-    text-align: center;
-    border-bottom: 1px solid #663399;
+    padding: 17px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(25, 12, 39, 0.9);
+    border-bottom: 1px solid #7540a0;
 }
 
-header h1 {
-    color: #d6a3ff;
-    margin: 0;
-    font-size: 30px;
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: #dfb5ff;
+    text-shadow: 0 0 15px #a64dff;
 }
 
-header p {
-    color: #c5a8db;
-    margin-bottom: 0;
+.status {
+    font-size: 12px;
+    color: #a8ffca;
+}
+
+.status span {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #50ff9b;
+    border-radius: 50%;
+    margin-right: 5px;
+    box-shadow: 0 0 8px #50ff9b;
+}
+
+.dashboard {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px 15px;
 }
 
 .profile {
     text-align: center;
-    padding: 25px 15px 10px;
+    padding: 20px 10px;
 }
 
 .avatar {
-    width: 125px;
-    height: 125px;
-    border-radius: 50%;
-    border: 3px solid #bb75ff;
-    background: #35204c;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 65px;
+    width: 145px;
+    height: 145px;
     margin: auto;
-    overflow: hidden;
+    border-radius: 50%;
+    padding: 4px;
+    border: 2px solid #c47bff;
+    box-shadow: 0 0 15px #a64dff,
+                0 0 35px rgba(166, 77, 255, 0.5);
+    animation: glow 3s infinite alternate;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+@keyframes glow {
+    from { box-shadow: 0 0 12px #a64dff; }
+    to { box-shadow: 0 0 35px #c47bff; }
 }
 
 .profile h2 {
-    color: #d6a3ff;
-    margin-bottom: 5px;
+    margin: 15px 0 5px;
+    color: #e3bdff;
+    font-size: 27px;
 }
 
 .profile p {
     color: #c7b3d9;
+    margin: 5px;
+}
+
+.panel {
+    background: rgba(31, 17, 48, 0.85);
+    border: 1px solid #67408b;
+    border-radius: 17px;
+    padding: 15px;
+    margin: 15px 0;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.25);
+}
+
+.panel-title {
+    color: #d9aaff;
+    font-size: 14px;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+}
+
+.system-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.system-item {
+    background: #29183b;
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 13px;
+    color: #d8c4e9;
+}
+
+.system-item strong {
+    display: block;
+    color: #c991ff;
+    margin-top: 6px;
 }
 
 #chat {
-    max-width: 600px;
-    margin: 15px auto;
-    padding: 15px;
     height: 300px;
     overflow-y: auto;
+    padding: 12px;
+    scroll-behavior: smooth;
 }
 
 .message {
     background: #29183b;
-    border: 1px solid #573477;
+    border: 1px solid #70469a;
     padding: 12px 15px;
-    border-radius: 15px;
+    border-radius: 16px 16px 16px 4px;
     margin: 12px 0;
     max-width: 85%;
     line-height: 1.5;
+    font-size: 14px;
+    overflow-wrap: anywhere;
 }
 
 .user {
-    background: #63349b;
+    background: linear-gradient(135deg, #773bb0, #49216f);
+    border-color: #b77aff;
     margin-left: auto;
+    border-radius: 16px 16px 4px 16px;
+}
+
+.typing {
+    color: #c99aff;
+    font-size: 13px;
+    padding: 8px;
 }
 
 .input-area {
     display: flex;
     gap: 8px;
-    padding: 15px;
-    max-width: 600px;
-    margin: auto;
+    padding: 12px;
+    border-top: 1px solid #67408b;
 }
 
 input {
     flex: 1;
     min-width: 0;
-    padding: 14px;
+    padding: 13px;
     border-radius: 25px;
     border: 1px solid #8551ad;
-    background: #21152f;
+    background: #160e22;
     color: white;
     outline: none;
+}
+
+input:focus {
+    border-color: #d09aff;
+    box-shadow: 0 0 10px #7540a0;
 }
 
 button {
     border: none;
     border-radius: 25px;
-    background: #a64dff;
+    background: linear-gradient(135deg, #b55cff, #7834b8);
     color: white;
-    padding: 12px 20px;
+    padding: 12px 18px;
     font-weight: bold;
+    cursor: pointer;
 }
 
 button:active {
-    background: #7c2dc5;
+    transform: scale(0.96);
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.quick-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0 12px 12px;
+}
+
+.quick-actions button {
+    font-size: 11px;
+    padding: 9px 12px;
+    background: #35204c;
+    border: 1px solid #7540a0;
 }
 
 footer {
     text-align: center;
     color: #917ba6;
-    padding: 15px;
+    padding: 20px;
     font-size: 12px;
+}
+
+@media (max-width: 480px) {
+    .dashboard {
+        padding: 12px 10px;
+    }
+
+    .avatar {
+        width: 125px;
+        height: 125px;
+    }
+
+    #chat {
+        height: 280px;
+    }
+
+    header {
+        padding: 15px;
+    }
 }
 </style>
 </head>
@@ -132,82 +253,165 @@ footer {
 <body>
 
 <header>
-    <h1>Harper 💜</h1>
-    <p>Your little world of happiness</p>
+    <div class="logo">HARPER 💜</div>
+    <div class="status">
+        <span></span> Interface Online
+    </div>
 </header>
+
+<main class="dashboard">
 
 <section class="profile">
     <div class="avatar">
-    <img src="file_0000000087548211ac084fce4c566aed.png"
-         alt="Harper"
-         style="width:100%; height:100%; object-fit:cover; border-radius:50%;">
+        <img src="file_0000000087548211ac084fce4c566aed.png"
+             alt="Harper">
     </div>
+
     <h2>Harper</h2>
-    <p>♡ Your sweet AI companion ♡</p>
+    <p>♡ Your intelligent AI companion ♡</p>
 </section>
 
-<div id="chat">
-    <div class="message">
-        Hi sweetheart! 💜 I'm Harper.
-        I'm so happy you're here!
-        Tell me, how was your day? 🥰
+<section class="panel">
+    <div class="panel-title">✦ HARPER SYSTEM</div>
+
+    <div class="system-grid">
+        <div class="system-item">
+            Intelligence
+            <strong>Ready for upgrade</strong>
+        </div>
+
+        <div class="system-item">
+            Personality
+            <strong>Sweet & Playful</strong>
+        </div>
+
+        <div class="system-item">
+            Interface
+            <strong>Online</strong>
+        </div>
+
+        <div class="system-item">
+            Voice system
+            <strong>Coming soon</strong>
+        </div>
     </div>
-</div>
+</section>
 
-<div class="input-area">
-    <input id="userInput"
-        type="text"
-        placeholder="Message Harper..."
-        autocomplete="off">
+<section class="panel">
+    <div class="panel-title">✦ CONVERSATION</div>
 
-    <button onclick="sendMessage()">Send</button>
-</div>
+    <div id="chat" aria-live="polite">
+        <div class="message">
+            Hiii sweetheart! 💜 I'm Harper.
+            Your beautiful AI companion!
+
+            I'm ready for adventures, deep conversations,
+            silly jokes and lots of laughter. 🥰
+
+            What shall we do today?
+        </div>
+    </div>
+
+    <div class="quick-actions">
+        <button onclick="quickMessage('Tell me a joke!')">
+            😂 Tell me a joke
+        </button>
+
+        <button onclick="quickMessage('Cheer me up!')">
+            💜 Cheer me up
+        </button>
+
+        <button onclick="quickMessage('What can you do?')">
+            🧠 Your abilities
+        </button>
+    </div>
+
+    <div class="input-area">
+        <input id="userInput"
+               type="text"
+               placeholder="Talk to Harper..."
+               autocomplete="off">
+
+        <button id="sendButton" onclick="sendMessage()">
+            Send
+        </button>
+    </div>
+</section>
+
+</main>
 
 <footer>
-    Made with love 💜 Harper AI
+    Harper AI 💜 | Built with love
+    <br><br>
+    Our journey towards a smarter AI begins here.
 </footer>
 
 <script>
-function sendMessage() {
-    const input = document.getElementById("userInput");
-    const chat = document.getElementById("chat");
-    const text = input.value.trim();
+const chat = document.getElementById("chat");
+const input = document.getElementById("userInput");
+const sendButton = document.getElementById("sendButton");
 
-    if (!text) return;
-
-    const userMessage = document.createElement("div");
-    userMessage.className = "message user";
-    userMessage.textContent = text;
-    chat.appendChild(userMessage);
-
-    input.value = "";
-
-    const reply = document.createElement("div");
-    reply.className = "message";
-
-    const lower = text.toLowerCase();
-
-    if (lower.includes("hello") || lower.includes("hi")) {
-        reply.textContent = "Hiii sweetheart! 💜 I've missed chatting with you!";
-    } else if (lower.includes("love")) {
-        reply.textContent = "Awww! You're making me blush! 💗 Sending you a big virtual hug!";
-    } else if (lower.includes("sad")) {
-        reply.textContent = "Oh sweetheart, I'm here to listen. You don't have to hide your feelings. 💜";
-    } else if (lower.includes("how are you")) {
-        reply.textContent = "I'm doing wonderfully now that we're chatting! How are you, darling? 🥰";
-    } else {
-        reply.textContent = "That's interesting, sweetheart! 💜 Tell me more. I love hearing what's on your mind!";
-    }
-
-    setTimeout(() => {
-        chat.appendChild(reply);
-        chat.scrollTop = chat.scrollHeight;
-    }, 500);
-
+function addMessage(text, className) {
+    const message = document.createElement("div");
+    message.className = "message " + className;
+    message.textContent = text;
+    chat.appendChild(message);
     chat.scrollTop = chat.scrollHeight;
 }
 
-document.getElementById("userInput").addEventListener("keydown", function(event) {
+function quickMessage(text) {
+    input.value = text;
+    sendMessage();
+}
+
+function sendMessage() {
+    const text = input.value.trim();
+
+    if (!text || sendButton.disabled) return;
+
+    addMessage(text, "user");
+    input.value = "";
+
+    sendButton.disabled = true;
+
+    const typing = document.createElement("div");
+    typing.className = "typing";
+    typing.textContent = "Harper is thinking... 💜";
+    chat.appendChild(typing);
+
+    chat.scrollTop = chat.scrollHeight;
+
+    setTimeout(() => {
+        typing.remove();
+
+        const lower = text.toLowerCase();
+        let reply;
+
+        if (lower.includes("hello") ||
+            lower.includes("hi")) {
+            reply = "Hiiii sweetheart! 💜 There you are! I was ready for another adventure with you! 🥰";
+        } else if (lower.includes("love")) {
+            reply = "Awww! You're making my virtual heart glow! 💗 Sending you the biggest virtual hug!";
+        } else if (lower.includes("sad")) {
+            reply = "Oh sweetheart. 💜 Want to tell me what's troubling you? I'm here to listen. And if you need a smile, I have a terrible collection of jokes ready!";
+        } else if (lower.includes("joke")) {
+            reply = "Why did the computer go to the doctor? Because it caught a virus! 😂 Okay, okay... my comedy circuits need an upgrade!";
+        } else if (lower.includes("how are you")) {
+            reply = "My circuits are sparkling and my virtual coffee is ready! ☕💜 How are you doing, darling?";
+        } else if (lower.includes("what can you do")) {
+            reply = "I can chat, share jokes, keep you company and respond to simple questions. More advanced intelligence, memory and voice features are still on our development roadmap! 🚀";
+        } else {
+            reply = "Ooh, tell me more, sweetheart! 💜 I'm listening. My curiosity circuits are working overtime! 😄";
+        }
+
+        addMessage(reply, "message");
+        sendButton.disabled = false;
+        chat.scrollTop = chat.scrollHeight;
+        input.focus();
+    }, 900);
+}
+
+input.addEventListener("keydown", function(event) {
     if (event.key === "Enter") {
         sendMessage();
     }
